@@ -214,9 +214,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:
 .outage-card .oc-text{font-size:13px;color:var(--txt2);line-height:1.55;font-weight:500}
 .outage-card .oc-direction{display:inline-block;font-size:10.5px;padding:4px 10px;border-radius:8px;background:var(--bg3);color:var(--txt2);font-weight:700;margin-top:10px;font-family:'Onest',sans-serif}
 
-/* ============================================
-   КАРТОЧКИ РЕЙСОВ — НОВЫЙ ДИЗАЙН
-   ============================================ */
+/* КАРТОЧКИ РЕЙСОВ — НОВЫЙ ДИЗАЙН */
 .routes-list{display:flex;flex-direction:column;gap:14px}
 
 .route{
@@ -233,7 +231,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:
 }
 .route:active{transform:scale(.98);box-shadow:0 6px 18px rgba(8,23,15,.12)}
 
-/* цветная полоска слева */
 .route::before{
   content:'';
   position:absolute;
@@ -261,7 +258,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:
 .route.transfer{border-color:rgba(26,95,219,.35)}
 .route.transfer::before{background:linear-gradient(180deg,var(--blue),#1e40af)}
 
-/* ШАПКА КАРТОЧКИ: времена + кнопка */
 .r-head{
   display:flex;
   align-items:flex-start;
@@ -314,7 +310,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:
   min-width:0;
 }
 
-/* Кнопка купить — большая, справа */
 .r-buy{
   flex-shrink:0;
   padding:14px 18px;
@@ -334,7 +329,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:
 }
 .r-buy:active{transform:scale(.94)}
 
-/* Средняя полоса: стрелка перехода + бейджи */
 .r-mid{
   display:flex;
   align-items:center;
@@ -366,7 +360,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:
   flex-shrink:0;
 }
 
-/* Бейджи статуса */
 .r-tag{
   font-size:10.5px;
   padding:6px 12px;
@@ -387,7 +380,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:
 .r-tag.warning{background:var(--amber-soft);color:var(--amber);border:1px solid rgba(194,105,0,.3)}
 .r-tag.transfer{background:var(--blue-soft);color:var(--blue)}
 
-/* Подвал карточки: номер поезда, модель, время в пути, комменты */
 .r-foot{
   display:flex;
   align-items:center;
@@ -466,7 +458,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:
 .cat-header .icon{color:var(--green);font-size:19px}
 .cat-header .cat-count{margin-left:auto;font-size:11.5px;color:var(--txt3);font-weight:700;background:var(--card);padding:4px 11px;border-radius:9px}
 
-/* SCHEDULE ITEM (станция) — тоже улучшим */
+/* SCHEDULE ITEM */
 .sched-item{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px 20px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start;cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,border-color .25s;box-shadow:var(--shadow-sm);-webkit-user-select:none;user-select:none;position:relative;overflow:hidden}
 .sched-item:active{transform:scale(.98);box-shadow:0 4px 14px rgba(8,23,15,.1)}
 .sched-item.past{opacity:.5}
@@ -1194,7 +1186,6 @@ function renderRouteCard(s,isPast,isToday){
   const fromName=fromStation?fromStation.title:'';
   const toName=toStation?toStation.title:'';
 
-  // Live-индикатор: меньше 30 мин до отправления
   let liveHtml='';
   if(isToday&&!isPast&&!statusInfo.code){
     const mins=minutesUntil(s.departure);
@@ -1203,12 +1194,10 @@ function renderRouteCard(s,isPast,isToday){
     }
   }
 
-  // Прямой или с пересадкой
   const isTransfer=s.transfers&&s.transfers.length>0;
   const arrowText=isTransfer?'с пересадкой':(dur?'в пути '+dur:'прямой рейс');
   const arrowIcon=isTransfer?'#i-transfer':'#i-clock';
 
-  // Бейджи статуса
   let tags='';
   if(statusInfo.code==='cancelled')tags+='<span class="r-tag cancelled"><svg class="icon" style="width:11px;height:11px"><use href="#i-ban"/></svg> Отменён</span>';
   else if(statusInfo.code==='delayed')tags+='<span class="r-tag delayed">⏱ Задержка'+(statusInfo.delay>0?' '+statusInfo.delay+' мин':'')+'</span>';
@@ -1219,47 +1208,26 @@ function renderRouteCard(s,isPast,isToday){
   if(info.comfort)tags+='<span class="r-tag comfort">'+esc(info.comfort)+'</span>';
 
   const chip=modelChipHtml(info);
-
   const statusClass=statusInfo.code==='cancelled'?' cancelled':statusInfo.code==='delayed'?' delayed':(isTransfer?' transfer':'');
 
   return '<div class="route ripple-host'+(isPast?' past':'')+statusClass+'" onclick="openRouteDetail(\''+uid+'\')">'+
-
-    // ШАПКА: времена + кнопка Купить
     '<div class="r-head">'+
       '<div class="r-times">'+
-        '<div class="r-row">'+
-          '<span class="r-label">Отпр</span>'+
-          '<span class="r-dep">'+depTime+'</span>'+
-          '<span class="r-station">'+esc(fromName)+'</span>'+
-        '</div>'+
-        '<div class="r-row">'+
-          '<span class="r-label">Приб</span>'+
-          '<span class="r-arr">'+arrTime+'</span>'+
-          '<span class="r-station">'+esc(toName)+'</span>'+
-        '</div>'+
+        '<div class="r-row"><span class="r-label">Отпр</span><span class="r-dep">'+depTime+'</span><span class="r-station">'+esc(fromName)+'</span></div>'+
+        '<div class="r-row"><span class="r-label">Приб</span><span class="r-arr">'+arrTime+'</span><span class="r-station">'+esc(toName)+'</span></div>'+
       '</div>'+
-      '<button class="r-buy" onclick="event.stopPropagation();buyTicket(\''+uid+'\')">'+
-        '<svg class="icon" style="font-size:14px"><use href="#i-star"/></svg> Купить'+
-      '</button>'+
+      '<button class="r-buy" onclick="event.stopPropagation();buyTicket(\''+uid+'\')"><svg class="icon" style="font-size:14px"><use href="#i-star"/></svg> Купить</button>'+
     '</div>'+
-
-    // СРЕДНЯЯ ПОЛОСА: стрелка + бейджи
     '<div class="r-mid">'+
       '<span class="r-arrow"><svg class="icon"><use href="'+arrowIcon+'"/></svg>'+esc(arrowText)+'</span>'+
-      liveHtml+
-      tags+
+      liveHtml+tags+
     '</div>'+
-
-    // ПОДВАЛ: номер, маршрут, комменты
     '<div class="r-foot">'+
       chip+
       '<span class="r-num">'+esc(num)+'</span>'+
       '<span class="r-title">'+esc(title)+'</span>'+
-      '<span class="r-comments" onclick="event.stopPropagation();openThreadComments(\''+uid+'\')">'+
-        '<svg class="icon"><use href="#i-comment"/></svg>'+
-      '</span>'+
+      '<span class="r-comments" onclick="event.stopPropagation();openThreadComments(\''+uid+'\')"><svg class="icon"><use href="#i-comment"/></svg></span>'+
     '</div>'+
-
   '</div>';
 }
 
@@ -1276,7 +1244,8 @@ async function searchStation(){
   if(cachedSchedule&&cachedSchedule.length>0)renderStationScheduleNew(cachedSchedule,box,ymd);
   else box.innerHTML=renderLoadScreen('Загружаем расписание...');
   const timerInt=attachLoadTimer(box);
-  const path='/schedule/?apikey='+APIKEY+'&station='+encodeURIComponent(stationPick.code)+'&date='+ymd+'&format=json&limit=500&transport_types=suburban,train&event=all&system=yandex&show_systems=all';
+  // ✅ ИСПРАВЛЕНО: убран &event=all (Яндекс не принимает "all", только arrival/departure/пусто)
+  const path='/schedule/?apikey='+APIKEY+'&station='+encodeURIComponent(stationPick.code)+'&date='+ymd+'&format=json&limit=500&transport_types=suburban,train&system=yandex&show_systems=all';
   fetchFromProxies(path).then(d=>{
     clearTimer(timerInt);
     const schedule=Array.isArray(d.schedule)?d.schedule:[];
