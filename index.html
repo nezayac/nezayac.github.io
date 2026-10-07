@@ -6,7 +6,6 @@
 <meta name="theme-color" content="#0a3d24">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Не Заяц — расписание электричек и поездов</title>
-<meta name="description" content="Расписание электричек и поездов Москвы и МО. Задержки и отмены в реальном времени.">
 <link rel="icon" href="535AC982-E720-4BE0-B005-04BCB460C40B.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -237,7 +236,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:ra
 .mo.active{display:flex;animation:fadeIn .2s ease}
 .mbox{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;max-width:500px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg);position:relative}
 .mbox h3{font-family:'Onest',sans-serif;font-size:17px;font-weight:700;margin-bottom:18px;color:var(--txt);display:flex;align-items:center;gap:8px}
-.mbox h3 .icon{color:var(--green);font-size:17px}
 .mclose{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:11px;background:var(--bg3);border:1px solid var(--line);color:var(--txt2);font-size:15px;display:flex;align-items:center;justify-content:center}
 .fld{margin-bottom:12px}
 .fld label{font-family:'Onest',sans-serif;font-size:11.5px;color:var(--txt2);display:block;margin-bottom:7px;font-weight:600}
@@ -283,14 +281,12 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:ra
 .stops-table .st-header .st-h:first-child{text-align:left}
 .stops-table .st-row{display:grid;grid-template-columns:1fr 52px 54px 52px;gap:4px;padding:12px 13px;border-bottom:1px solid var(--line);align-items:center}
 .stops-table .st-row:last-child{border-bottom:none}
-.stops-table .st-name-td{font-weight:500;color:var(--txt);line-height:1.4;font-size:12.5px;word-break:break-word;display:flex;flex-direction:column;gap:4px}
-.stops-table .st-name-td .st-platform{font-size:10px;color:var(--green);font-weight:600;background:var(--green-soft);padding:2px 7px;border-radius:6px;width:fit-content;font-family:'Onest',sans-serif}
-.stops-table .st-name-td .st-late{font-size:10px;color:var(--red);font-weight:600}
-.stops-table .st-name-td .st-ontime{font-size:10px;color:#16a34a;font-weight:600}
+.stops-table .st-name-td{font-weight:500;color:var(--txt);line-height:1.4;font-size:12.5px;word-break:break-word}
+.stops-table .st-name-td .st-platform{display:inline-block;font-size:10px;color:var(--green);font-weight:600;margin-top:4px;background:var(--green-soft);padding:2px 7px;border-radius:6px;font-family:'Onest',sans-serif}
 .stops-table .st-td{text-align:center;font-size:12px;color:var(--txt2);font-weight:500}
 .stops-table .st-td.arr-td,.stops-table .st-td.dep-td{color:var(--txt);font-weight:600}
 .multi-segment{padding:4px 0}
-.multi-segment .seg-block{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:8px;cursor:pointer;box-shadow:var(--shadow-sm)}
+.multi-segment .seg-block{background:var(--bg3);border-radius:14px;padding:13px 15px;margin-bottom:8px;border:1px solid var(--line)}
 .multi-segment .seg-head{display:flex;align-items:center;gap:8px;margin-bottom:7px;flex-wrap:wrap}
 .multi-segment .seg-num{font-family:'Onest',sans-serif;font-size:13px;font-weight:700;color:var(--txt)}
 .multi-segment .seg-times{display:flex;align-items:baseline;gap:7px;margin-bottom:5px;flex-wrap:wrap}
@@ -351,6 +347,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:ra
 <symbol id="i-check" viewBox="0 0 448 512"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></symbol>
 <symbol id="i-chev" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></symbol>
 <symbol id="i-chev-down" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></symbol>
+<symbol id="i-chev-up" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></symbol>
 <symbol id="i-plane" viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64c0 36-59.5 64-93.7 64l-116.6 0L265.2 495.9c-5.7 10-16.3 16.1-27.8 16.1l-56.2 0c-10.6 0-18.3-10.2-15.4-20.4l49-171.6L112 320 68.8 377.6c-3 4-7.8 6.4-12.8 6.4l-42 0c-7.8 0-14-6.3-14-14c0-1.3 .2-2.6 .5-3.9L32 256 .5 145.9c-.4-1.3-.5-2.6-.5-3.9c0-7.8 6.3-14 14-14l42 0c5 0 9.8 2.4 12.8 6.4L112 192l102.9 0-49-171.6C162.9 10.2 170.6 0 181.2 0l56.2 0c11.5 0 22.1 6.2 27.8 16.1L365.7 192l116.6 0z"/></symbol>
 <symbol id="i-logout" viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></symbol>
 <symbol id="i-paper-plane" viewBox="0 0 512 512"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480V396.4c0-4 1.5-7.8 4.2-10.7L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></symbol>
@@ -368,7 +365,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:ra
 
 <div id="app">
 <div class="hd">
-  <div class="logo" id="hdLogo" onclick="navigate('home')">
+  <div class="logo" id="hdLogo" onclick="switchTab('home')">
     <img src="535AC982-E720-4BE0-B005-04BCB460C40B.png" alt="НЗ" onerror="this.parentElement.classList.add('no-img');this.style.display='none'">
     <div class="logo-fallback">НЗ</div>
   </div>
@@ -388,15 +385,15 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:ra
       <div class="hero-title">Привет!</div>
       <div class="hero-sub">Найди свой рейс — электрички и поезда. Задержки и отмены в реальном времени.</div>
       <div class="hero-actions">
-        <button class="hero-btn ripple-host" onclick="navigate('route')"><svg class="icon"><use href="#i-search"/></svg> Маршрут</button>
-        <button class="hero-btn ripple-host" onclick="navigate('station')"><svg class="icon"><use href="#i-clock"/></svg> Станция</button>
+        <button class="hero-btn ripple-host" onclick="switchTab('route')"><svg class="icon"><use href="#i-search"/></svg> Маршрут</button>
+        <button class="hero-btn ripple-host" onclick="switchTab('station')"><svg class="icon"><use href="#i-clock"/></svg> Станция</button>
       </div>
     </div></div>
     <div class="section-title">Быстрые действия</div>
     <div class="feature-grid">
-      <div class="feature-card ripple-host" onclick="navigate('route')"><div class="fc-icon"><svg class="icon"><use href="#i-route"/></svg></div><div class="fc-title">Найти маршрут</div><div class="fc-sub">Откуда → Куда</div></div>
-      <div class="feature-card ripple-host" onclick="navigate('station')"><div class="fc-icon blue"><svg class="icon"><use href="#i-train"/></svg></div><div class="fc-title">Расписание</div><div class="fc-sub">По станции</div></div>
-      <div class="feature-card ripple-host" onclick="navigate('news')"><div class="fc-icon amber"><svg class="icon"><use href="#i-news"/></svg></div><div class="fc-title">Новости</div><div class="fc-sub">Обновления</div></div>
+      <div class="feature-card ripple-host" onclick="switchTab('route')"><div class="fc-icon"><svg class="icon"><use href="#i-route"/></svg></div><div class="fc-title">Найти маршрут</div><div class="fc-sub">Откуда → Куда</div></div>
+      <div class="feature-card ripple-host" onclick="switchTab('station')"><div class="fc-icon blue"><svg class="icon"><use href="#i-train"/></svg></div><div class="fc-title">Расписание</div><div class="fc-sub">По станции</div></div>
+      <div class="feature-card ripple-host" onclick="switchTab('news')"><div class="fc-icon amber"><svg class="icon"><use href="#i-news"/></svg></div><div class="fc-title">Новости</div><div class="fc-sub">Обновления</div></div>
       <div class="feature-card ripple-host" onclick="openReviews()"><div class="fc-icon purple"><svg class="icon"><use href="#i-star"/></svg></div><div class="fc-title">Отзывы</div><div class="fc-sub">Оцените сервис</div></div>
     </div>
     <div id="homeNewsBlock"></div>
@@ -494,11 +491,11 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:ra
 </div>
 
 <div class="nav">
-  <div class="nav-item on ripple-host" data-tab="home" onclick="navigate('home')"><svg class="icon"><use href="#i-home"/></svg><span>Главная</span></div>
-  <div class="nav-item ripple-host" data-tab="route" onclick="navigate('route')"><svg class="icon"><use href="#i-route"/></svg><span>Маршрут</span></div>
-  <div class="nav-item ripple-host" data-tab="station" onclick="navigate('station')"><svg class="icon"><use href="#i-train"/></svg><span>Станция</span></div>
-  <div class="nav-item ripple-host" data-tab="news" onclick="navigate('news')"><svg class="icon"><use href="#i-news"/></svg><span>Новости</span></div>
-  <div class="nav-item ripple-host" data-tab="profile" onclick="navigate('profile')"><svg class="icon"><use href="#i-user"/></svg><span>Профиль</span></div>
+  <div class="nav-item on ripple-host" data-tab="home" onclick="switchTab('home')"><svg class="icon"><use href="#i-home"/></svg><span>Главная</span></div>
+  <div class="nav-item ripple-host" data-tab="route" onclick="switchTab('route')"><svg class="icon"><use href="#i-route"/></svg><span>Маршрут</span></div>
+  <div class="nav-item ripple-host" data-tab="station" onclick="switchTab('station')"><svg class="icon"><use href="#i-train"/></svg><span>Станция</span></div>
+  <div class="nav-item ripple-host" data-tab="news" onclick="switchTab('news')"><svg class="icon"><use href="#i-news"/></svg><span>Новости</span></div>
+  <div class="nav-item ripple-host" data-tab="profile" onclick="switchTab('profile')"><svg class="icon"><use href="#i-user"/></svg><span>Профиль</span></div>
 </div>
 </div>
 
@@ -552,7 +549,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background:ra
 
 <div class="mo" id="threadDetailOverlay"><div class="mbox" style="max-width:600px">
 <button class="mclose" onclick="closeModal('threadDetailOverlay')"><svg class="icon"><use href="#i-close"/></svg></button>
-<button class="share-btn" onclick="shareCurrent()"><svg class="icon"><use href="#i-share"/></svg></button>
 <div id="threadDetailBody"></div>
 </div></div>
 
@@ -610,7 +606,7 @@ const STATIONS_FB='https://nexik-63c6c-default-rtdb.firebaseio.com/stations.json
 const EMAIL_DOMAIN='@nezayac.app';
 const IMGBB_KEY='e95d7591bce7e9d9ab12197fd5eb0b26';
 const NICK_COOLDOWN=7*24*60*60*1000;
-const STATIONS_CACHE_KEY='nz_stations_v38';
+const STATIONS_CACHE_KEY='nz_stations_v39';
 const STATIONS_CACHE_TTL=14*24*60*60*1000;
 const ROUTE_CACHE_TTL=3*60*1000;
 const ROUTE_PERSIST_TTL=7*24*60*60*1000;
@@ -645,7 +641,6 @@ let supportListener=null,adminChatListener=null,currentAdminChatUID=null;
 let captchaAnswer=0;
 let calendarTarget='route';
 let calendarDate=new Date();
-let currentThreadUid=null;
 
 function $(id){return document.getElementById(id)}
 function esc(t){const d=document.createElement('div');d.textContent=t==null?'':String(t);return d.innerHTML}
@@ -665,16 +660,7 @@ function attachRipple(e){const host=e.currentTarget;if(!host||!host.classList.co
 document.addEventListener('pointerdown',attachRipple,{passive:true});
 function applyTheme(th){if(th!=='dark')th='light';document.body.setAttribute('data-theme',th);localStorage.setItem('nz_theme',th);if(currentUID)db.ref('users/'+currentUID+'/theme').set(th)}
 function toggleTheme(){const cur=document.body.getAttribute('data-theme');applyTheme(cur==='dark'?'light':'dark');toast('Тема переключена')}
-
-function setHash(hash){if(location.hash==='#'+hash)return;history.replaceState(null,'','#'+hash)}
-function navigate(tab){if(tab==='home')setHash('home');else if(tab==='route')setHash('route');else if(tab==='station')setHash('station');else if(tab==='news')setHash('news');else if(tab==='profile')setHash('profile');switchTab(tab)}
-function parseQS(qs){const out={};if(!qs)return out;qs.split('&').forEach(p=>{const [k,v]=p.split('=');if(k)out[decodeURIComponent(k)]=decodeURIComponent(v||'')});return out}
 function switchTab(tab){document.querySelectorAll('.vw').forEach(v=>v.classList.remove('on'));const vw=$('vw'+tab.charAt(0).toUpperCase()+tab.slice(1));if(vw)vw.classList.add('on');document.querySelectorAll('.nav-item').forEach(t=>t.classList.toggle('on',t.dataset.tab===tab));if(tab==='news')renderNews();if(tab==='profile')renderProfile();if(tab==='home')renderHome()}
-function handleHash(){const h=location.hash.slice(1);const [path,qs]=h.split('?');const params=parseQS(qs);if(!path||path==='home'){switchTab('home')}else if(path==='route'){switchTab('route')}else if(path==='station'){switchTab('station')}else if(path==='news'){switchTab('news')}else if(path==='profile'){switchTab('profile')}else{switchTab('home')}}
-window.addEventListener('hashchange',handleHash);
-function shareCurrent(){const url=location.href;if(navigator.share){navigator.share({url:url}).catch(()=>{})}else if(navigator.clipboard){navigator.clipboard.writeText(url).then(()=>toast('Ссылка скопирована 📋')).catch(()=>toast('Не удалось скопировать'))}else{toast('Скопируй: '+url)}}
-function shareThread(uid){if(!uid){toast('Нет данных');return}const url=location.origin+location.pathname+'#thread/'+uid;if(navigator.share){navigator.share({title:'Рейс',url:url}).catch(()=>{})}else if(navigator.clipboard){navigator.clipboard.writeText(url).then(()=>toast('Ссылка скопирована 📋')).catch(()=>toast(url))}else{toast(url)}}
-
 function renderLoadScreen(text){return '<div class="load-screen"><div class="load-icon-wrap"><svg class="load-icon"><use href="#i-train"/></svg></div><div class="load-dots"><div class="load-dot"></div><div class="load-dot"></div><div class="load-dot"></div><div class="load-dot"></div><div class="load-dot"></div></div><div class="load-bar"></div><div class="load-text">'+esc(text||'Загрузка...')+'</div><div class="load-timer" data-timer></div></div>'}
 function attachLoadTimer(box){const start=Date.now();const el=box.querySelector('[data-timer]');if(!el)return null;const int=setInterval(()=>{const s=Math.floor((Date.now()-start)/1000);if(s>3&&s<=8)el.textContent='Подключаемся...';else if(s>8&&s<=14)el.textContent='Медленный интернет';else if(s>14)el.textContent='Слабый сигнал?'},1000);activeTimers.add(int);return int}
 function clearTimer(int){if(int){clearInterval(int);activeTimers.delete(int)}}
@@ -688,7 +674,7 @@ function calSetToday(){calendarDate=new Date();renderCalendar();calendarPick(dat
 function calSetTomorrow(){const d=new Date();d.setDate(d.getDate()+1);calendarDate=d;renderCalendar();calendarPick(dateToYmd(d))}
 function calSetReset(){calendarDate=new Date();renderCalendar()}
 
-function renderHome(){const block=$('homeNewsBlock');if(!block)return;db.ref('news').limitToLast(1).once('value').then(s=>{const d=s.val()||{};const arr=Object.entries(d).map(([k,v])=>Object.assign({id:k},v)).sort((a,b)=>b.time-a.time);if(arr.length===0){block.innerHTML='';return}const n=arr[0];block.innerHTML='<div class="section-title">Последнее</div>'+'<div class="post" onclick="navigate(\'news\')" style="cursor:pointer">'+(n.title?'<div class="title">'+esc(n.title)+'</div>':'')+(n.text?'<div class="text">'+esc(n.text)+'</div>':'')+'</div>'})}
+function renderHome(){const block=$('homeNewsBlock');if(!block)return;db.ref('news').limitToLast(1).once('value').then(s=>{const d=s.val()||{};const arr=Object.entries(d).map(([k,v])=>Object.assign({id:k},v)).sort((a,b)=>b.time-a.time);if(arr.length===0){block.innerHTML='';return}const n=arr[0];block.innerHTML='<div class="section-title">Последнее</div>'+'<div class="post" onclick="switchTab(\'news\')" style="cursor:pointer">'+(n.title?'<div class="title">'+esc(n.title)+'</div>':'')+(n.text?'<div class="text">'+esc(n.text)+'</div>':'')+'</div>'})}
 
 function newCaptcha(){const a=Math.floor(Math.random()*9)+2;const b=Math.floor(Math.random()*9)+2;captchaAnswer=a+b;const q=$('captchaQ');if(q)q.textContent=a+' + '+b+' =';const inp=$('captchaAnswer');if(inp)inp.value=''}
 
@@ -824,12 +810,10 @@ function renderRouteCard(s,isPast,isToday){
       chip+
       '<span class="r-num">'+esc(num)+'</span>'+
       '<span class="r-title">'+esc(title)+'</span>'+
-      '<span class="r-action" onclick="event.stopPropagation();shareThread(\''+uid+'\')"><svg class="icon"><use href="#i-share"/></svg></span>'+
       '<span class="r-action" onclick="event.stopPropagation();openThreadComments(\''+uid+'\')"><svg class="icon"><use href="#i-comment"/></svg></span>'+
     '</div>'+
   '</div>';
 }
-
 function openRouteDetailByToken(token){
   const s=window['_routeSegments_'+token];
   if(!s){toast('Ошибка');return}
@@ -838,7 +822,6 @@ function openRouteDetailByToken(token){
   const uid=(s.thread&&s.thread.uid)||'';
   openRouteDetail(uid);
 }
-
 function renderMultiSegment(s){
   const depTime=fmtHM(s.departure);const arrTime=fmtHM(s.arrival);const dur=fmtDuration(s.duration);
   let html='<div class="rd-head"><div class="rd-time"><div class="rd-time-col"><span>'+depTime+'</span></div><svg class="icon"><use href="#i-chev"/></svg><div class="rd-time-col"><span class="arr">'+arrTime+'</span></div></div>'+(dur?'<div class="rd-dur">В пути '+dur+'</div>':'')+'</div>';
@@ -875,7 +858,6 @@ function renderMultiSegment(s){
   html+='<button class="btn" onclick="buyTicket(\''+((s.details[0].thread&&s.details[0].thread.uid)||'')+'\')">Купить билет</button>';
   return html;
 }
-
 function buyTicket(uid){if(!uid){toast('Нет данных');return}window.open('https://rasp.yandex.ru/thread/'+uid,'_blank')}
 function setStationDir(dir){stationDir=dir;document.querySelectorAll('.dir-switch button').forEach(b=>{b.classList.toggle('on',b.dataset.dir===dir)})}
 
@@ -902,7 +884,6 @@ async function searchStation(){
     box.innerHTML=niceError('Не получилось',err.message||'Ошибка');
   });
 }
-
 function renderStationScheduleNew(schedule,box,ymd){
   const now=new Date();const isToday=dateToYmd(now)===ymd;const nowMins=now.getHours()*60+now.getMinutes();
   const timeToMins=(iso)=>{if(!iso)return 99999;return parseInt(iso.slice(11,13))*60+parseInt(iso.slice(14,16))};
@@ -917,7 +898,6 @@ function renderStationScheduleNew(schedule,box,ymd){
   if(showDep){html+=block('Электрички · Отправление',elDep,'departure','train');html+=block('Поезда · Отправление',pzDep,'departure','plane')}
   box.innerHTML=html;
 }
-
 function renderStationItemNew(s,type,isPast){
   const time=fmtHM(s[type]);const thread=s.thread||{};const num=extractThreadNumber({thread:thread});const title=thread.title||'';const uid=thread.uid||'';
   const info=detectTrainInfo(thread);const platform=extractPlatform(s);const platformHtml=platform?'<span class="s-platform">Путь '+esc(platform)+'</span>':'';
@@ -934,7 +914,6 @@ function extractThreadNumber(d){const t=d.thread||d;if(t.number&&String(t.number
 
 function openRouteDetail(uid){
   if(!uid){toast('Нет данных');return}
-  currentThreadUid=uid;
   const body=$('threadDetailBody');
   body.innerHTML=renderLoadScreen('Загружаем остановки...');
   const timerInt=attachLoadTimer(body);
@@ -964,12 +943,7 @@ function openRouteDetail(uid){
       const plat=extractPlatform(st);
       const name=extractStationName(st);
       const platHtml=plat?'<span class="st-platform">Путь '+esc(plat)+'</span>':'';
-      let statusHtml='';
-      if(st.is_cancelled||st.cancelled)statusHtml='<span class="st-late">Отменён</span>';
-      else if(st.delay||st.is_delayed||(st.thread&&st.thread.delay))statusHtml='<span class="st-late">опоздание на '+(st.delay||st.thread.delay||'?')+' мин</span>';
-      else if(st.is_possible_delay)statusHtml='<span class="st-late">возможно опоздание</span>';
-      else statusHtml='<span class="st-ontime">ожидается по расписанию</span>';
-      stopsTable+='<div class="st-row"><div class="st-name-td">'+esc(name)+platHtml+statusHtml+'</div><div class="st-td arr-td">'+(arrT||'—')+'</div><div class="st-td">'+stopTime+'</div><div class="st-td dep-td">'+(depT||'—')+'</div></div>';
+      stopsTable+='<div class="st-row"><div class="st-name-td">'+esc(name)+platHtml+'</div><div class="st-td arr-td">'+(arrT||'—')+'</div><div class="st-td">'+stopTime+'</div><div class="st-td dep-td">'+(depT||'—')+'</div></div>';
     });
     stopsTable+='</div>';
     let infoHtml='<div class="info-block">';
@@ -1018,7 +992,7 @@ function unblockUser(uid){if(!isAdmin)return;db.ref('blocked_uids/'+uid).remove(
     const sBtn=$('supportSendBtn');if(sBtn)sBtn.addEventListener('click',function(e){e.preventDefault();sendSupportMessage()});
     const sInp=$('supportInput');if(sInp)sInp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();sendSupportMessage()}});
     newCaptcha();
-    loadStations().then(()=>{handleHash()}).catch(()=>{});
+    loadStations().catch(()=>{});
     renderProfile();renderNews();renderHome();
     console.log('Не Заяц v1.0 BETA загружен');
   }catch(e){console.error('Init error:',e)}
